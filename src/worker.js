@@ -371,7 +371,7 @@ function createErrorResponse(message, status = 500, details = null) {
 
 /**
  * 创建首页响应
- */
+
 function createHomeResponse(proxyDomain) {
   const html = `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -534,3 +534,4 @@ function createHomeResponse(proxyDomain) {
     }
   });
 }
+ */
