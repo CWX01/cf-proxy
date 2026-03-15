@@ -274,7 +274,11 @@ function buildProxyHeaders(originalHeaders, targetUrl) {
   const importantHeaders = [
     'accept', 'accept-encoding', 'accept-language', 'authorization',
     'content-type', 'user-agent', 'cache-control', 'pragma', 'content-length',
-    'origin', 'referer', 'cookie', 'x-requested-with'
+    'origin', 'referer', 'cookie', 'x-requested-with',
+  'authorization',           // OpenAI: Bearer sk-xxx
+  'x-goog-api-key',          // Gemini: API Key
+  'x-api-key',               // 通用 API Key 头（Anthropic/自定义服务）
+  'x-openai-api-key',        // 某些 OpenAI 兼容服务
   ];
 
   for (const [key, value] of originalHeaders.entries()) {
