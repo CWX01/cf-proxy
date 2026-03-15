@@ -281,6 +281,16 @@ function buildProxyHeaders(originalHeaders, targetUrl) {
   'x-openai-api-key',        // 某些 OpenAI 兼容服务
   ];
 
+// 读取环境变量中请求头配置
+const extraHeaders = (EXTRA_AUTH_HEADERS || '').split(',').map(h => h.trim().toLowerCase());
+
+for (const [key, value] of originalHeaders) {
+  if (importantHeaders.includes(key.toLowerCase()) || 
+      extraHeaders.includes(key.toLowerCase())) {
+    proxyHeaders.set(key, value);
+  }
+}
+  
   for (const [key, value] of originalHeaders.entries()) {
     if (importantHeaders.includes(key.toLowerCase())) {
       headers.set(key, value);
