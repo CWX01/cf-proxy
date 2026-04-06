@@ -280,6 +280,7 @@ function buildProxyHeaders(originalHeaders, targetUrl) {
   'x-api-key',               // 通用 API Key 头（Anthropic/自定义服务）
   'x-openai-api-key',        // 某些 OpenAI 兼容服务
   'Content-Type', 
+  'cf-aig-authorization'
   ];
   
   for (const [key, value] of originalHeaders.entries()) {
